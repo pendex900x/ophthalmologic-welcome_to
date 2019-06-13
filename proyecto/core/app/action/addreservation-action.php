@@ -4,7 +4,6 @@
 * @author localhost
 **/
 
-
 $rx = ReservationData::getRepeated($_POST["pacient_id"],$_POST["medic_id"],$_POST["date_at"],$_POST["time_at"]);
 if($rx==null){
 $r = new ReservationData();
@@ -30,5 +29,7 @@ Core::alert("Agregado exitosamente!");
 }else{
 Core::alert("Error al agregar, Cita Repetida!");
 }
-Core::redir("./index.php?view=reservations");
+
+print "<script>window.location='index.php?view=reservations';</script>";
+//Core::redir("./index.php?view=reservations");
 ?>

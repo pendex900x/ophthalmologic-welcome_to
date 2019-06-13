@@ -1,10 +1,47 @@
-<?php 
+<?php
 $reservation = ReservationData::getById($_GET["id"]);
 $pacients = PacientData::getAll();
 $medics = MedicData::getAll();
 $statuses = StatusData::getAll();
 $payments = PaymentData::getAll();
 ?>
+
+<style>
+	#contact label{
+		display: inline-block;
+		width: 100px;
+		text-align: right;
+	}
+	#contact_submit{
+		padding-left: 100px;
+	}
+	#contact div{
+		margin-top: 1em;
+	}
+	textarea{
+		vertical-align: top;
+		height: 5em;
+	}
+
+	.error{
+		display: none;
+		margin-left: 10px;
+	}
+
+	.error_show{
+		color: red;
+		margin-left: 10px;
+	}
+
+	input.invalid, textarea.invalid{
+		border: 2px solid red;
+	}
+
+	input.valid, textarea.valid{
+		border: 2px solid green;
+	}
+</style>
+
 <div class="row">
 	<div class="col-md-12">
 
@@ -13,7 +50,7 @@ $payments = PaymentData::getAll();
       <h4 class="title">Modificar Cita</h4>
   </div>
   <div class="card-content table-responsive">
-<form class="form-horizontal" role="form" method="post" action="./?action=updatereservation">
+<form class="form-horizontal" id="updatereservation" role="form" method="post" action="">
   <div class="form-group">
     <label for="inputEmail1" class="col-lg-2 control-label">Asunto</label>
     <div class="col-lg-10">
@@ -113,7 +150,44 @@ $payments = PaymentData::getAll();
     </div>
   </div>
 </form>
+<div id="results1"></div>
 </div>
 </div>
 	</div>
 </div>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+
+  $("form").submit(function() {
+    // Getting the form ID
+    var formID = $(this).attr('id');
+    var formDetails = $('#'+formID);
+
+		$.ajax({
+			type: "POST",
+			url: './?action=updatereservation',
+			data: formDetails.serialize(),
+			success: function (data) {
+				// Inserting html into the result div
+			//  $('#results0').html(data);
+
+				if(formID=='updatereservation')
+							 $('#results1').html(data);
+				// else if(formID=='contact2')
+				//       $('#results2').html(data);
+
+			//  $('#results0').html(data);
+			},
+			error: function(jqXHR, text, error){
+						// Displaying if there are any errors
+							$('#result').html(error);
+				}
+		});
+		return false;
+		});
+		});
+
+
+</script>
