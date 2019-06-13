@@ -39,8 +39,6 @@ require_once('./core/app/model/ChileRut.php');
 		}
 	</style>
 
-	<!-- jQuery-->
-	<!-- <script type="text/javascript" src="jquery.min.js"></script> -->
 
 <div class="row">
 	<div class="col-md-12">
