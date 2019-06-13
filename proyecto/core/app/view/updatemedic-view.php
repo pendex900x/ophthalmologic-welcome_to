@@ -1,10 +1,11 @@
 <?php
-
+/*
 if(count($_POST)>0){
 	$user = MedicData::getById($_POST["user_id"]);
 
 	$category_id = "NULL";
 	if($_POST["category_id"]!=""){ $category_id = $_POST["category_id"]; }
+	$user->no = $_POST["no"];
 	$user->name = $_POST["name"];
 	$user->category_id = $category_id;
 	$user->lastname = $_POST["lastname"];
@@ -19,5 +20,5 @@ print "<script>window.location='index.php?view=medics';</script>";
 
 }
 
-
+*/
 ?>

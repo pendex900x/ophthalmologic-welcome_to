@@ -4,7 +4,7 @@
 * @author localhost
 
 **/
-
+ /*
 if(count($_POST)>0){
 	$user = new MedicData();
 	$category_id = "NULL";
@@ -22,5 +22,5 @@ print "<script>window.location='index.php?view=medics';</script>";
 
 }
 
-
+*/
 ?>
