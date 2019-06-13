@@ -76,7 +76,7 @@ $users= array();
 if((isset($_GET["q"]) && isset($_GET["pacient_id"]) && isset($_GET["medic_id"]) && isset($_GET["date_at"])) && ($_GET["q"]!="" || $_GET["pacient_id"]!="" || $_GET["medic_id"]!="" || $_GET["date_at"]!="") ) {
 $sql = "select * from reservation where ";
 if($_GET["q"]!=""){
-	$sql .= " title like '%$_GET[q]%' and note like '%$_GET[q] %' ";
+	$sql .= " title like '%$_GET[q]%' OR note like '%$_GET[q]%' ";
 }
 
 if($_GET["pacient_id"]!=""){
