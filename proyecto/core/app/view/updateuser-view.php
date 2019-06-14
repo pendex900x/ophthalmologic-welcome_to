@@ -9,6 +9,8 @@ if(count($_POST)>0){
 	if(isset($_POST["is_contador"])){$is_contador=1;}
 	$is_inventario=0;
 	if(isset($_POST["is_inventario"])){$is_inventario=1;}
+	$is_secretaria=0;
+	if(isset($_POST["is_secretaria"])){$is_secretaria=1;}
 
 	$user = UserData::getById($_POST["user_id"]);
 	$user->name = $_POST["name"];
@@ -16,6 +18,7 @@ if(count($_POST)>0){
 	$user->username = $_POST["username"];
 	$user->email = $_POST["email"];
 	$user->is_admin=$is_admin;
+	$user->is_secretaria=$is_secretaria;
 	$user->is_contador=$is_contador;
 	$user->is_inventario=$is_inventario;
 	$user->is_active=$is_active;

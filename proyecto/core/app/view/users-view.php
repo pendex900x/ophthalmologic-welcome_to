@@ -23,6 +23,7 @@
 			<th>Email</th>
 			<th>Activo</th>
 			<th>Admin</th>
+			<th>Secretaria</th>
 			<th>Contador</th>
 			<th>Inventario</th>
 			<th></th>
@@ -41,6 +42,11 @@
 				</td>
 				<td>
 					<?php if($user->is_admin):?>
+						<i class="fa fa-check"></i>
+					<?php endif; ?>
+				</td>
+				<td>
+					<?php if($user->is_secretaria):?>
 						<i class="fa fa-check"></i>
 					<?php endif; ?>
 				</td>

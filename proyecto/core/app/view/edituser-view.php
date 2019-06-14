@@ -67,6 +67,17 @@
   </div>
 
 	<div class="form-group">
+    <label for="inputEmail1" class="col-lg-2 control-label" >Es secretaria</label>
+    <div class="col-md-6">
+<div class="checkbox">
+    <label>
+      <input type="checkbox" name="is_secretaria" <?php if($user->is_secretaria){ echo "checked";}?>>
+    </label>
+  </div>
+    </div>
+  </div>
+
+	<div class="form-group">
 		<label for="inputEmail1" class="col-lg-2 control-label" >Es contador</label>
 		<div class="col-md-6">
 <div class="checkbox">

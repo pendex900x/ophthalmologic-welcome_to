@@ -33,7 +33,7 @@
 		exit();
 	}
 	?>
-	
+
 	<a href="index.php?view=newinstrument" class="btn btn-default"><i class='fa fa-male'></i> Nuevo Instrumento</a>
 		<?php
 
