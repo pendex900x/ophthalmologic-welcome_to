@@ -1,11 +1,5 @@
 <?php
 
-/**
-* 1 de agosto del 2013
-* Esta funcion contiene el nombre de los identificadores que se usaran como variables de session
-* y tambien los setters y getters correspondientes.
-**/
-
 class Session{
 	public static function setUID($uid){
 		$_SESSION['user_id'] = $uid;

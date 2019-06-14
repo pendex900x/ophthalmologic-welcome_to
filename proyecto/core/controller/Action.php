@@ -1,14 +1,13 @@
 <?php
 
 
-// 12 de Octubre del 2014
 // Action.php
-// @brief Un action corresponde a una rutina de un modulo.
+// Un action corresponde a una rutina de un modulo.
 
 class Action {
 	/**
 	* @function load
-	* @brief la funcion load carga una vista correspondiente a un modulo
+	* La funcion load carga una vista correspondiente a un modulo
 	**/
 	public static function load($action){
 		// Module::$module;
@@ -32,7 +31,7 @@ class Action {
 
 	/**
 	* @function isValid
-	* @brief valida la existencia de una vista
+	* Valida la existencia de una vista
 	**/
 	public static function isValid(){
 		$valid=false;

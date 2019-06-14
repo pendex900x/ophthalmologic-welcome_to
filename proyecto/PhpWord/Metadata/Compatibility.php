@@ -28,9 +28,6 @@ class Compatibility
     /**
      * OOXML version
      *
-     * 12 = 2007
-     * 14 = 2010
-     * 15 = 2013
      *
      * @var int
      * @link http://msdn.microsoft.com/en-us/library/dd909048%28v=office.12%29.aspx

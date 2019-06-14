@@ -1,12 +1,12 @@
 <?php
 
 // View.php
-// @brief Una vista corresponde a cada componente visual dentro de un modulo.
+// Una vista corresponde a cada componente visual dentro de un modulo.
 
 class View {
 	/**
 	* @function load
-	* @brief la funcion load carga una vista correspondiente a un modulo
+	* La funcion load carga una vista correspondiente a un modulo
 	**/
 	public static function load($view){
 		// Module::$module;
@@ -39,7 +39,7 @@ class View {
 
 	/**
 	* @function isValid
-	* @brief valida la existencia de una vista
+	* Valida la existencia de una vista
 	**/
 	public static function isValid(){
 		$valid=false;
