@@ -46,6 +46,24 @@ require_once('./core/app/model/ChileRut.php');
   <div class="card-header" data-background-color="blue">
       <h4 class="title">Nuevo Paciente</h4>
   </div>
+
+<?
+//Verifica si esta logeado
+	if(!isset($_SESSION["user_id"])){
+	header('Location: index.php');
+	}
+
+
+//ROLES
+	$user = UserData::getById($_SESSION['user_id']);
+
+	if ((strpos($user->is_type, 'A')!== false) OR (strpos($user->is_type, 's')!== false)){
+	}else{
+	echo "No tiene acceso ya que su cuenta no posee privilegios de administrador.";
+	exit();
+	}
+?>
+
   <div class="card-content table-responsive">
 
 		<form class="form-horizontal" method="post" id="addpacient" action="">

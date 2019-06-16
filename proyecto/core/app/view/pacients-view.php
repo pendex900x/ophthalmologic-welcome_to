@@ -15,6 +15,23 @@
   <div class="card-header" data-background-color="blue">
       <h4 class="title">Pacientes</h4>
   </div>
+
+	<? //Verifica si esta logeado
+	if(!isset($_SESSION["user_id"])){
+	header('Location: index.php');
+	}
+	?>
+
+	<?php //ROLES
+	$user = UserData::getById($_SESSION['user_id']);
+
+	if ((strpos($user->is_type, 'A')!== false) OR (strpos($user->is_type, 's')!== false)){
+	}else{
+	echo "No tiene acceso ya que su cuenta no posee privilegios de administrador.";
+	exit();
+	}
+	?>
+
   <div class="card-content table-responsive">
 	<a href="index.php?view=newpacient" class="btn btn-default"><i class='fa fa-male'></i> Nuevo Paciente</a>
 		<?php

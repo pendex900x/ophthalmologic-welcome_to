@@ -8,6 +8,23 @@ $pacient = MedicData::getById($_GET["id"]);
       <h4 class="title">Historial de Citas del Medico</h4>
 <p>Medico: <?php echo $pacient->name." ".$pacient->lastname;?></p>
   </div>
+
+  <?
+	//Verifica si esta logeado
+		if(!isset($_SESSION["user_id"])){
+		header('Location: index.php');
+		}
+
+	//ROLES
+		$user1 = UserData::getById($_SESSION['user_id']);
+
+		if ((strpos($user1->is_type, 'A')!== false) OR (strpos($user1->is_type, 's')!== false)){
+		}else{
+		echo "No tiene acceso ya que su cuenta no posee privilegios de administrador y tampoco tiene el rango de secretaria.";
+		exit();
+		}
+	?>
+
   <div class="card-content table-responsive">
 	<div class="col-md-12">
 <div class="btn-group pull-right">
