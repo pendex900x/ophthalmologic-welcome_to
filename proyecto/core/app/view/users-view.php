@@ -7,9 +7,26 @@
   </div>
   <div class="card-content table-responsive">
 
+		
+<? //Verifica si esta logeado
+if(!isset($_SESSION["user_id"])){
+header('Location: index.php');
+}
+?>
+
+<?php //ROLES
+$user = UserData::getById($_SESSION['user_id']);
+
+if (strpos($user->is_type, 'A')!== false){
+}else{
+echo "No tiene acceso ya que su cuenta no posee privilegios de administrador.";
+exit();
+}
+?>
 
 	<a href="index.php?view=newuser" class="btn btn-default"><i class='fa fa-user'></i> Nuevo Usuario</a>
 <br>
+
 		<?php
 
 		$users = UserData::getAll();
@@ -31,6 +48,7 @@
 			<?php
 			foreach($users as $user){
 				?>
+
 				<tr>
 				<td><?php echo $user->name." ".$user->lastname; ?></td>
 				<td><?php echo $user->email; ?></td>
@@ -41,22 +59,22 @@
 					<?php endif; ?>
 				</td>
 				<td>
-					<?php if($user->is_admin):?>
+					<?php if (strpos($user->is_type, 'A') !== false):?>
 						<i class="fa fa-check"></i>
 					<?php endif; ?>
 				</td>
 				<td>
-					<?php if($user->is_secretaria):?>
+					<?php if (strpos($user->is_type, 's') !== false):?>
 						<i class="fa fa-check"></i>
 					<?php endif; ?>
 				</td>
 				<td>
-					<?php if($user->is_contador):?>
+					<?php if (strpos($user->is_type, 'c') !== false):?>
 						<i class="fa fa-check"></i>
 					<?php endif; ?>
 				</td>
 				<td>
-					<?php if($user->is_inventario):?>
+					<?php if (strpos($user->is_type, 'i') !== false):?>
 						<i class="fa fa-check"></i>
 					<?php endif; ?>
 				</td>

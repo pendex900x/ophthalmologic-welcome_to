@@ -5,6 +5,23 @@
   <div class="card-header" data-background-color="blue">
       <h4 class="title">Editar Usuario</h4>
   </div>
+
+	<? //Verifica si esta logeado
+	if(!isset($_SESSION["user_id"])){
+		  header('Location: index.php');
+	}
+	?>
+
+	<?php //ROLES
+	$user1 = UserData::getById($_SESSION['user_id']);
+
+	if (strpos($user1->is_type, 'A')!== false){
+	}else{
+		echo "No tiene acceso ya que su cuenta no posee privilegios de administrador.";
+		exit();
+	}
+	?>
+
   <div class="card-content table-responsive">
 
 		<form class="form-horizontal" method="post" id="addproduct" action="index.php?view=updateuser" role="form">
@@ -60,7 +77,7 @@
     <div class="col-md-6">
 <div class="checkbox">
     <label>
-      <input type="checkbox" name="is_admin" <?php if($user->is_admin){ echo "checked";}?>>
+      <input type="checkbox" name="is_admin" <?php if (strpos($user->is_type, 'A') !== false){ echo "checked";}?>>
     </label>
   </div>
     </div>
@@ -71,7 +88,7 @@
     <div class="col-md-6">
 <div class="checkbox">
     <label>
-      <input type="checkbox" name="is_secretaria" <?php if($user->is_secretaria){ echo "checked";}?>>
+      <input type="checkbox" name="is_secretaria" <?php if (strpos($user->is_type, 's') !== false){ echo "checked";}?>>
     </label>
   </div>
     </div>
@@ -82,7 +99,7 @@
 		<div class="col-md-6">
 <div class="checkbox">
 		<label>
-			<input type="checkbox" name="is_contador" <?php if($user->is_contador){ echo "checked";}?>>
+			<input type="checkbox" name="is_contador" <?php if (strpos($user->is_type, 'c') !== false){ echo "checked";}?>>
 		</label>
 	</div>
 		</div>
@@ -93,7 +110,7 @@
 		<div class="col-md-6">
 <div class="checkbox">
 		<label>
-			<input type="checkbox" name="is_inventario" <?php if($user->is_inventario){ echo "checked";}?>>
+			<input type="checkbox" name="is_inventario" <?php if (strpos($user->is_type, 'i') !== false){ echo "checked";}?>>
 		</label>
 	</div>
 		</div>

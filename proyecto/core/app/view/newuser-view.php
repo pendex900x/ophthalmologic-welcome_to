@@ -1,3 +1,19 @@
+<? //Verifica si esta logeado
+if(!isset($_SESSION["user_id"])){
+	  header('Location: index.php');
+}
+?>
+
+<?php //ROLES
+$user = UserData::getById($_SESSION['user_id']);
+
+if (strpos($user->is_type, 'A')!== false){
+}else{
+	echo "No tiene acceso ya que su cuenta no posee privilegios de administrador.";
+	exit();
+}
+?>
+
 <div class="row">
 	<div class="col-md-12">
 <div class="card">
@@ -41,7 +57,7 @@
     </div>
   </div>
 
-  <div class="form-group">
+	<div class="form-group">
     <label for="inputEmail1" class="col-lg-2 control-label">Es administrador</label>
     <div class="col-md-6">
 <div class="checkbox">
@@ -51,6 +67,17 @@
   </div>
     </div>
   </div>
+
+	<div class="form-group">
+		<label for="inputEmail1" class="col-lg-2 control-label">Es secretaria</label>
+		<div class="col-md-6">
+<div class="checkbox">
+		<label>
+			<input type="checkbox" name="is_secretaria">
+		</label>
+	</div>
+		</div>
+	</div>
 
 	<div class="form-group">
 		<label for="inputEmail1" class="col-lg-2 control-label">Es Contador</label>
