@@ -3,6 +3,21 @@
 /*PARA EL RUT*/
 require_once('./core/app/model/ChileRut.php');
 
+//Verifica si esta logeado
+if(!isset($_SESSION["user_id"])){
+header('Location: index.php');
+}
+
+
+//ROLES
+$user1 = UserData::getById($_SESSION['user_id']);
+
+if ((strpos($user1->is_type, 'A')!== false) OR (strpos($user1->is_type, 's')!== false)){
+}else{
+echo "No tiene acceso ya que su cuenta no posee privilegios de administrador y tampoco tiene el rango de secretaria.";
+exit();
+}
+
 if(isset($_POST)){
 if ($_POST['no']==null OR $_POST['no']==''){
 
@@ -32,7 +47,7 @@ if ($_POST["name"]==null OR $_POST["name"]==''){
 	exit();
 }
 if (!preg_match("/^[a-zA-Z ]*$/",$_POST["name"])) {
-  $nameErr = "El nombre debe contener solo letras o espacios en blanco";
+  echo $nameErr = "El nombre debe contener solo letras o espacios en blanco";
 	exit();
 }
 //FIN Nombre

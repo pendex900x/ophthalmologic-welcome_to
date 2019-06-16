@@ -5,11 +5,28 @@ include "../core/app/model/PacientData.php";
 include "../core/app/model/MedicData.php";
 include "../core/app/model/StatusData.php";
 include "../core/app/model/PaymentData.php";
+include "../core/app/model/UserData.php";
 session_start();
 
 require_once '../PhpWord/Autoloader.php';
 use PhpOffice\PhpWord\Autoloader;
 use PhpOffice\PhpWord\Settings;
+
+
+//Verifica si esta logeado
+if(!isset($_SESSION["user_id"])){
+header('Location: index.php');
+}
+
+//ROLES
+$user1 = UserData::getById($_SESSION['user_id']);
+
+if ((strpos($user1->is_type, 'A')!== false) OR (strpos($user1->is_type, 'c')!== false)){
+}else{
+echo "No tiene acceso ya que su cuenta no posee privilegios de administrador y tampoco tiene el rango de contador.";
+exit();
+}
+
 
 Autoloader::register();
 

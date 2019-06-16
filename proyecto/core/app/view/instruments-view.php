@@ -23,16 +23,26 @@
   <div class="card-header" data-background-color="blue">
       <h4 class="title">Instrumentos</h4>
   </div>
+
+	<?
+	//Verifica si esta logeado
+		if(!isset($_SESSION["user_id"])){
+		header('Location: index.php');
+		}
+
+
+	//ROLES
+		$user1 = UserData::getById($_SESSION['user_id']);
+
+		if ((strpos($user1->is_type, 'A')!== false) OR (strpos($user1->is_type, 'i')!== false)){
+		}else{
+		echo "No tiene acceso ya que su cuenta no posee privilegios de administrador y tampoco tiene el rango de inventario.";
+		exit();
+		}
+	?>
+
   <div class="card-content table-responsive">
 
-	<?php
-	$user = UserData::getById($_SESSION['user_id']);
-	if ($user->is_admin==1){
-	}elseif ($user->is_inventario==0){
-		echo "No tiene acceso.";
-		exit();
-	}
-	?>
 
 	<a href="index.php?view=newinstrument" class="btn btn-default"><i class='fa fa-male'></i> Nuevo Instrumento</a>
 		<?php
