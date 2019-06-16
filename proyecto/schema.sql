@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 11-06-2019 a las 17:49:15
+-- Tiempo de generación: 15-06-2019 a las 21:13:41
 -- Versión del servidor: 5.7.17-log
 -- Versión de PHP: 5.6.30
 
@@ -36,7 +36,7 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `name`) VALUES
-(1, 'Modulo 1');
+(1, 'Oftalmología');
 
 -- --------------------------------------------------------
 
@@ -86,7 +86,8 @@ CREATE TABLE `medic` (
 
 INSERT INTO `medic` (`id`, `no`, `name`, `lastname`, `gender`, `day_of_birth`, `email`, `address`, `phone`, `image`, `is_active`, `created_at`, `category_id`) VALUES
 (1, NULL, 'doctor bacan', 'gano mucha money', NULL, NULL, 'maildeldoc', 'la dehesa', 'telefonodeldoc', NULL, 1, '2019-04-27 00:12:48', 1),
-(2, NULL, 'medico millonario 23', 'wena', NULL, NULL, 'mail', 'direccc', 'tell', NULL, 1, '2019-04-27 00:15:05', 1);
+(2, NULL, 'medico millonario 23', 'wena', NULL, NULL, 'mail', 'direccc', 'tell', NULL, 1, '2019-04-27 00:15:05', 1),
+(4, '195227993', 'wena', 'wena', NULL, NULL, 'asdau@asdasd.com', 's', '', NULL, 1, '2019-06-12 23:34:07', 1);
 
 -- --------------------------------------------------------
 
@@ -182,6 +183,13 @@ CREATE TABLE `reservation` (
   `status_id` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `reservation`
+--
+
+INSERT INTO `reservation` (`id`, `title`, `note`, `message`, `date_at`, `time_at`, `created_at`, `pacient_id`, `symtoms`, `sick`, `medicaments`, `user_id`, `medic_id`, `price`, `is_web`, `payment_id`, `status_id`) VALUES
+(7, 'ww', 'wwe', NULL, '2019-12-01', '23:59', '2019-06-13 01:31:59', 14, '', '', '', 1, 4, 0, 0, 1, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -217,9 +225,7 @@ CREATE TABLE `user` (
   `email` varchar(255) DEFAULT NULL,
   `password` varchar(60) DEFAULT NULL,
   `is_active` tinyint(1) NOT NULL DEFAULT '1',
-  `is_admin` tinyint(1) NOT NULL DEFAULT '0',
-  `is_contador` tinyint(1) NOT NULL,
-  `is_inventario` tinyint(1) NOT NULL,
+  `is_type` varchar(8) NOT NULL,
   `created_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -227,9 +233,10 @@ CREATE TABLE `user` (
 -- Volcado de datos para la tabla `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `name`, `lastname`, `email`, `password`, `is_active`, `is_admin`, `is_contador`, `is_inventario`, `created_at`) VALUES
-(1, 'admin', 'admin', 'admin', NULL, '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 1, 1, 0, 0, '2019-04-27 00:08:51'),
-(2, 'noadmin', 'no es admin', 'no es admin', NULL, 'd9670b53a148b51c0187a8e9ac66a81ab9a138de', 1, 0, 1, 1, '2019-04-27 00:20:19');
+INSERT INTO `user` (`id`, `username`, `name`, `lastname`, `email`, `password`, `is_active`, `is_type`, `created_at`) VALUES
+(1, 'admin', 'admin', 'admin', NULL, '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 1, 'A', '2019-04-27 00:08:51'),
+(2, 'noadmin', 'no es admin', 'no es admin', NULL, 'd9670b53a148b51c0187a8e9ac66a81ab9a138de', 1, 'sci', '2019-04-27 00:20:19'),
+(7, '123', '123', '123', NULL, 'adcd7048512e64b48da55b027577886ee5a36350', 0, 'Acis', '0000-00-00 00:00:00');
 
 --
 -- Índices para tablas volcadas
@@ -319,7 +326,7 @@ ALTER TABLE `instrument`
 -- AUTO_INCREMENT de la tabla `medic`
 --
 ALTER TABLE `medic`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `orders`
 --
@@ -339,7 +346,7 @@ ALTER TABLE `payment`
 -- AUTO_INCREMENT de la tabla `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT de la tabla `status`
 --
@@ -349,7 +356,7 @@ ALTER TABLE `status`
 -- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- Restricciones para tablas volcadas
 --
