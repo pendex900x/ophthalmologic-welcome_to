@@ -68,7 +68,19 @@ $payments = PaymentData::getAll();
 
   <div class="card-content table-responsive">
 <form class="form-horizontal" id="updatereservation" role="form" method="post" action="">
-  <div class="form-group">
+
+	<div class="form-group">
+    <label for="inputEmail1" class="col-lg-2 control-label">Tipo de Cita</label>
+    <div class="col-lg-10">
+			<select name="tipo_cita" class="mdb-select md-form form-control">
+			  <option value="" disabled>Elige tipo de cita.</option>
+			  <option value="m" <?php if ($reservation->tipo_cita=='m'){ echo selected;} ?>>Cita Médica</option>
+			  <option value="o" <?php if ($reservation->tipo_cita=='o'){ echo selected;} ?>>Cita de Operación</option>
+			</select>
+    </div>
+  </div>
+
+	<div class="form-group">
     <label for="inputEmail1" class="col-lg-2 control-label">Asunto</label>
     <div class="col-lg-10">
       <input type="text" name="title" value="<?php echo $reservation->title; ?>" required class="form-control" id="inputEmail1" placeholder="Asunto">

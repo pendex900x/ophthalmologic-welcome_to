@@ -17,8 +17,8 @@ class ReservationData {
 	public function getPayment(){ return PaymentData::getById($this->payment_id); }
 
 	public function add(){
-		$sql = "insert into reservation (title,note,medic_id,date_at,time_at,pacient_id,user_id,price,status_id,payment_id,sick,symtoms,medicaments,created_at) ";
-		$sql .= "value (\"$this->title\",\"$this->note\",\"$this->medic_id\",\"$this->date_at\",\"$this->time_at\",$this->pacient_id,$this->user_id,\"$this->price\",$this->status_id,$this->payment_id,\"$this->sick\",\"$this->symtoms\",\"$this->medicaments\",$this->created_at)";
+		$sql = "insert into reservation (tipo_cita,title,note,medic_id,date_at,time_at,pacient_id,user_id,price,status_id,payment_id,sick,symtoms,medicaments,created_at) ";
+		$sql .= "value (\"$this->tipo_cita\",\"$this->title\",\"$this->note\",\"$this->medic_id\",\"$this->date_at\",\"$this->time_at\",$this->pacient_id,$this->user_id,\"$this->price\",$this->status_id,$this->payment_id,\"$this->sick\",\"$this->symtoms\",\"$this->medicaments\",$this->created_at)";
 		return Executor::doit($sql);
 	}
 
@@ -33,7 +33,7 @@ class ReservationData {
 
 // partiendo de que ya tenemos creado un objecto ReservationData previamente utilizamos el contexto
 	public function update(){
-		$sql = "update ".self::$tablename." set title=\"$this->title\",pacient_id=\"$this->pacient_id\",medic_id=\"$this->medic_id\",date_at=\"$this->date_at\",time_at=\"$this->time_at\",note=\"$this->note\",sick=\"$this->sick\",symtoms=\"$this->symtoms\",medicaments=\"$this->medicaments\",status_id=\"$this->status_id\",payment_id=\"$this->payment_id\",price=\"$this->price\" where id=$this->id";
+		$sql = "update ".self::$tablename." set tipo_cita=\"$this->tipo_cita\",title=\"$this->title\",pacient_id=\"$this->pacient_id\",medic_id=\"$this->medic_id\",date_at=\"$this->date_at\",time_at=\"$this->time_at\",note=\"$this->note\",sick=\"$this->sick\",symtoms=\"$this->symtoms\",medicaments=\"$this->medicaments\",status_id=\"$this->status_id\",payment_id=\"$this->payment_id\",price=\"$this->price\" where id=$this->id";
 		Executor::doit($sql);
 	}
 
@@ -99,7 +99,7 @@ class ReservationData {
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new ReservationData());
 	}
-	
+
 	public static function getLike($q){
 		$sql = "select * from ".self::$tablename." where title like '%$q%'";
 		$query = Executor::doit($sql);

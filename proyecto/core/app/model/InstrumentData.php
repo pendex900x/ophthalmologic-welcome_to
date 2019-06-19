@@ -11,8 +11,8 @@ class InstrumentData {
 	}
 
 	public function add(){
-		$sql = "insert into ".self::$tablename." (name,cantidad,created_at) ";
-		$sql .= "value (\"$this->name\",\"$this->cantidad\",$this->created_at)";
+		$sql = "insert into ".self::$tablename." (name,cantidad,codigo,marca,created_at) ";
+		$sql .= "value (\"$this->name\",\"$this->cantidad\",\"$this->codigo\",\"$this->marca\",$this->created_at)";
 		Executor::doit($sql);
 	}
 
@@ -26,7 +26,7 @@ class InstrumentData {
 	}
 
 	public function update(){
-		$sql = "update ".self::$tablename." set name=\"$this->name\",cantidad=\"$this->cantidad\",created_at=\"$this->created_at\" where id=$this->id";
+		$sql = "update ".self::$tablename." set name=\"$this->name\",cantidad=\"$this->cantidad\",codigo=$this->codigo,marca=$this->marca,created_at=\"$this->created_at\" where id=$this->id";
 		Executor::doit($sql);
 	}
 

@@ -24,7 +24,7 @@
 
   <div class="card-content table-responsive">
 
-		<form class="form-horizontal" method="post" id="addproduct" action="index.php?view=addinstrument" role="form">
+		<form class="form-horizontal" method="post" id="addinstrument" role="form">
 
 
   <div class="form-group">
@@ -36,16 +36,83 @@
   <div class="form-group">
     <label for="inputEmail1" class="col-lg-2 control-label">Cantidad</label>
     <div class="col-md-6">
-      <input type="text" name="cantidad"  class="form-control" id="cantidad" placeholder="">
+      <input type="number" name="cantidad"  class="form-control" id="cantidad" placeholder="Cantidad">
     </div>
   </div>
+	  <div class="form-group">
+	    <label for="inputEmail1" class="col-lg-2 control-label">Marca</label>
+	    <div class="col-md-6">
+	      <input type="text" name="marca"  class="form-control" id="" placeholder="Marca">
+	    </div>
+		</div>
+		<div class="form-group">
+		    <label for="inputEmail1" class="col-lg-2 control-label">Código</label>
+		    <div class="col-md-6">
+		      <input type="text" name="codigo"  class="form-control" id="codigo" placeholder="Código">
+		    </div>
+		</div>
+
+
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
       <button type="submit" class="btn btn-primary">Agregar Instrumento</button>
     </div>
   </div>
 </form>
+<div id="results1"></div>
 </div>
 </div>
 	</div>
 </div>
+
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+
+	<!-- name cant be blank-->
+	$('#name').on('input', function() {
+		var input=$(this);
+		var is_name=input.val();
+		if(is_name){input.removeClass("invalid").addClass("valid");}
+		else{input.removeClass("valid").addClass("invalid");}
+	});
+
+	<!-- (no) rut cant be blank-->
+	$('#no').on('input', function() {
+		var input=$(this);
+		var is_no=input.val();
+		if(is_no){input.removeClass("invalid").addClass("valid");}
+		else{input.removeClass("valid").addClass("invalid");}
+	});
+
+
+  $("form").submit(function() {
+    // Getting the form ID
+    var formID = $(this).attr('id');
+    var formDetails = $('#'+formID);
+
+		$.ajax({
+			type: "POST",
+			url: './?action=addinstrument',
+			data: formDetails.serialize(),
+			success: function (data) {
+				// Inserting html into the result div
+			//  $('#results0').html(data);
+
+				if(formID=='addinstrument')
+							 $('#results1').html(data);
+				// else if(formID=='contact2')
+				//       $('#results2').html(data);
+
+			//  $('#results0').html(data);
+			},
+			error: function(jqXHR, text, error){
+						// Displaying if there are any errors
+							$('#result').html(error);
+				}
+		});
+		return false;
+		});
+		});
+</script>

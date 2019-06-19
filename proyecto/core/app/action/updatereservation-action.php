@@ -28,6 +28,8 @@ if(count($_POST)>0){
 	$user->date_at = $_POST["date_at"];
 	$user->time_at = $_POST["time_at"];
 	$user->note = $_POST["note"];
+	
+	$user->tipo_cita = $_POST["tipo_cita"];
 
 	$user->status_id = $_POST["status_id"];
 	$user->payment_id = $_POST["payment_id"];

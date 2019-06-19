@@ -22,6 +22,7 @@
 
 			<table class="table table-bordered table-hover">
 			<thead>
+			<th>Tipo de Cita</th>
 			<th>Asunto</th>
 			<th>Paciente</th>
 			<th>Medico</th>
@@ -32,8 +33,10 @@
 			foreach($users as $user){
 				$pacient  = $user->getPacient();
 				$medic = $user->getMedic();
+				$reservationn = $user->tipo_cita;
 				?>
 				<tr>
+				<td><?php if ($user->tipo_cita=='m'){echo "Cita Médica.";}else{ echo "Cita de Operación."; } ?></td>
 				<td><?php echo $user->title; ?></td>
 				<td><?php echo $pacient->name." ".$pacient->lastname; ?></td>
 				<td><?php echo $medic->name." ".$pacient->lastname; ?></td>

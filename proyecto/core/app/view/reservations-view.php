@@ -50,7 +50,7 @@ $medics = MedicData::getAll();
 		  <span class="input-group-addon"><i class="fa fa-search"></i></span>
 		  <input type="text" name="q" value="<?php if(isset($_GET["q"]) && $_GET["q"]!=""){ echo $_GET["q"]; } ?>" class="form-control" placeholder="Palabra clave">
 		</div>
-    </div>
+	</div>
     <div class="col-lg-2">
 		<div class="input-group">
 		  <span class="input-group-addon"><i class="fa fa-male"></i></span>
@@ -131,6 +131,7 @@ if($_GET["q"]!=""||$_GET["pacient_id"]!="" ||$_GET["medic_id"]!="" ){
 			?>
 			<table class="table table-bordered table-hover">
 			<thead>
+			<th>Tipo de Cita</th>
 			<th>Asunto</th>
 			<th>Paciente</th>
 			<th>Medico</th>
@@ -143,6 +144,7 @@ if($_GET["q"]!=""||$_GET["pacient_id"]!="" ||$_GET["medic_id"]!="" ){
 				$medic = $user->getMedic();
 				?>
 				<tr>
+				<td><?php if ($user->tipo_cita=='m'){echo "Cita Médica.";}else{ echo "Cita de Operación."; } ?></td>
 				<td><?php echo $user->title; ?></td>
 				<td><?php echo $pacient->name." ".$pacient->lastname; ?></td>
 				<td><?php echo $medic->name." ".$medic->lastname; ?></td>

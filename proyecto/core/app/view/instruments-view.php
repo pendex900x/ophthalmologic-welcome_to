@@ -56,6 +56,8 @@
 			<thead>
 			<th>Nombre</th>
 			<th>Cantidad</th>
+			<th>Marca</th>
+			<th>Código</th>
 			<th>Creado en</th>
       <th></th>
 			</thead>
@@ -65,6 +67,8 @@
 				<tr>
 				<td><?php echo $user->name; ?></td>
 				<td><?php echo $user->cantidad; ?></td>
+				<td><?php echo $user->marca; ?></td>
+				<td><?php echo $user->codigo; ?></td>
 				<td><?php echo $user->created_at; ?></td>
 				<td style="width:178px;">
 				<a href="index.php?view=editinstrument&id=<?php echo $user->id;?>" class="btn btn-warning btn-xs">Editar</a>
