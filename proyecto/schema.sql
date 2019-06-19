@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 15-06-2019 a las 21:13:41
--- Versión del servidor: 5.7.17-log
--- Versión de PHP: 5.6.30
+-- Tiempo de generaciÃ³n: 18-06-2019 a las 22:29:04
+-- VersiÃ³n del servidor: 5.7.17-log
+-- VersiÃ³n de PHP: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -36,7 +36,7 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `name`) VALUES
-(1, 'Oftalmología');
+(1, 'OftalmologÃ­a');
 
 -- --------------------------------------------------------
 
@@ -48,6 +48,8 @@ CREATE TABLE `instrument` (
   `id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
   `cantidad` int(11) NOT NULL,
+  `codigo` int(11) NOT NULL,
+  `marca` varchar(30) NOT NULL,
   `created_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -55,8 +57,8 @@ CREATE TABLE `instrument` (
 -- Volcado de datos para la tabla `instrument`
 --
 
-INSERT INTO `instrument` (`id`, `name`, `cantidad`, `created_at`) VALUES
-(6, 'wena', 3, '2019-05-01 00:00:00');
+INSERT INTO `instrument` (`id`, `name`, `cantidad`, `codigo`, `marca`, `created_at`) VALUES
+(14, '12345', 12345, 12345, '12345', '2019-06-18 20:00:26');
 
 -- --------------------------------------------------------
 
@@ -86,8 +88,7 @@ CREATE TABLE `medic` (
 
 INSERT INTO `medic` (`id`, `no`, `name`, `lastname`, `gender`, `day_of_birth`, `email`, `address`, `phone`, `image`, `is_active`, `created_at`, `category_id`) VALUES
 (1, NULL, 'doctor bacan', 'gano mucha money', NULL, NULL, 'maildeldoc', 'la dehesa', 'telefonodeldoc', NULL, 1, '2019-04-27 00:12:48', 1),
-(2, NULL, 'medico millonario 23', 'wena', NULL, NULL, 'mail', 'direccc', 'tell', NULL, 1, '2019-04-27 00:15:05', 1),
-(4, '195227993', 'wena', 'wena', NULL, NULL, 'asdau@asdasd.com', 's', '', NULL, 1, '2019-06-12 23:34:07', 1);
+(2, '195227993', 'medico millonario', 'wena', NULL, NULL, 'mail', 'direccc', 'tell', NULL, 1, '2019-04-27 00:15:05', 1);
 
 -- --------------------------------------------------------
 
@@ -135,7 +136,8 @@ CREATE TABLE `pacient` (
 --
 
 INSERT INTO `pacient` (`id`, `no`, `name`, `lastname`, `gender`, `day_of_birth`, `email`, `address`, `phone`, `image`, `sick`, `medicaments`, `alergy`, `is_favorite`, `is_active`, `created_at`) VALUES
-(14, '195227993', 'asdasd', 'asdasd', 'h', '0000-00-00', 'asd', 'asdasd', 'asd', NULL, '', '', '', 1, 1, '2019-06-09 22:11:06');
+(15, '195227993', 'sadasd', 'asdasd', 'h', '0000-00-00', 'asdasd', 'asdasd', 'asdasd', NULL, '', '', '', 1, 1, '2019-06-15 22:32:21'),
+(16, '195227993', 'hhhh3', 'hhhh', 'h', '0000-00-00', 'hhhh', 'hhhhh', 'hhh', NULL, '', '', '', 1, 1, '2019-06-15 22:58:33');
 
 -- --------------------------------------------------------
 
@@ -165,6 +167,7 @@ INSERT INTO `payment` (`id`, `name`) VALUES
 
 CREATE TABLE `reservation` (
   `id` int(11) NOT NULL,
+  `tipo_cita` varchar(1) NOT NULL,
   `title` varchar(100) DEFAULT NULL,
   `note` text,
   `message` text,
@@ -187,8 +190,12 @@ CREATE TABLE `reservation` (
 -- Volcado de datos para la tabla `reservation`
 --
 
-INSERT INTO `reservation` (`id`, `title`, `note`, `message`, `date_at`, `time_at`, `created_at`, `pacient_id`, `symtoms`, `sick`, `medicaments`, `user_id`, `medic_id`, `price`, `is_web`, `payment_id`, `status_id`) VALUES
-(7, 'ww', 'wwe', NULL, '2019-12-01', '23:59', '2019-06-13 01:31:59', 14, '', '', '', 1, 4, 0, 0, 1, 1);
+INSERT INTO `reservation` (`id`, `tipo_cita`, `title`, `note`, `message`, `date_at`, `time_at`, `created_at`, `pacient_id`, `symtoms`, `sick`, `medicaments`, `user_id`, `medic_id`, `price`, `is_web`, `payment_id`, `status_id`) VALUES
+(8, 'm', 'asdasd', '', NULL, '2019-12-01', '00:00', '2019-06-16 00:26:18', 15, '', '', '', 1, 2, 0, 0, 1, 1),
+(9, '0', 'asdas', '', NULL, '2019-01-01', '00:00', '2019-06-16 00:26:34', 16, '', '', '', 1, 2, 0, 0, 1, 1),
+(10, 'm', 'asd', '', NULL, '2019-06-07', '00:00', '2019-06-18 21:14:09', 16, '', '', '', 1, 2, 0, 0, 1, 1),
+(11, 'o', 'asdasd', '', NULL, '2019-02-01', '00:00', '2019-06-18 21:14:55', 16, '', '', '', 1, 2, 0, 0, 1, 1),
+(12, 'o', 'asdasdasd', '', NULL, '2019-01-01', '00:00', '2019-06-18 21:15:36', 15, '', '', '', 1, 1, 0, 0, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -234,12 +241,12 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `name`, `lastname`, `email`, `password`, `is_active`, `is_type`, `created_at`) VALUES
-(1, 'admin', 'admin', 'admin', NULL, '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 1, 'A', '2019-04-27 00:08:51'),
-(2, 'noadmin', 'no es admin', 'no es admin', NULL, 'd9670b53a148b51c0187a8e9ac66a81ab9a138de', 1, 'sci', '2019-04-27 00:20:19'),
+(1, 'admin', 'admin', 'admin', NULL, '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 1, 'isA', '2019-04-27 00:08:51'),
+(2, 'jperez', 'Juanito', 'Perez', NULL, '0a8fee4cbe34e807cf7814062306c87f8637f329', 1, 'cis', '2019-04-27 00:20:19'),
 (7, '123', '123', '123', NULL, 'adcd7048512e64b48da55b027577886ee5a36350', 0, 'Acis', '0000-00-00 00:00:00');
 
 --
--- Índices para tablas volcadas
+-- Ãndices para tablas volcadas
 --
 
 --
@@ -321,12 +328,12 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT de la tabla `instrument`
 --
 ALTER TABLE `instrument`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT de la tabla `medic`
 --
 ALTER TABLE `medic`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `orders`
 --
@@ -336,7 +343,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT de la tabla `pacient`
 --
 ALTER TABLE `pacient`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT de la tabla `payment`
 --
@@ -346,7 +353,7 @@ ALTER TABLE `payment`
 -- AUTO_INCREMENT de la tabla `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT de la tabla `status`
 --

@@ -14,7 +14,7 @@ MONTAJE DE LA APLICACIÓN WEB.
 
 Se debe descargar la carpeta proyecto.
 
-Se debe tener Apache 2.4.25, MySQL 5.7.17 y PHP 5.6.30 (para ahorrar tiempo puede usar Appserv) http://prdownloads.sourceforge.net/appserv/appserv-win32-8.6.0.exe?download .
+Se debe tener Apache 2.4.25, MySQL 5.7.17, PHP 5.6.30 y phpMyAdmin 4.6.6 (para ahorrar tiempo puede usar Appserv) http://prdownloads.sourceforge.net/appserv/appserv-win32-8.6.0.exe?download .
 
 Dentro de phpmyadmin crear una base de datos con nombre 'welcometo' (Sin comillas) e importar schema.sql , el cuál esta dentro de la carpeta proyecto. El cotejamiento debe ser 'utf8_general_ci'.
 
@@ -34,3 +34,4 @@ En caso de no funcionar se requiere las siguientes versiones (vienen incluidas s
 Apache 2.4.25
 PHP 5.6.30
 MySQL 5.7.17
+phpMyAdmin 4.6.6
