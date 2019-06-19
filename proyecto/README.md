@@ -1,10 +1,6 @@
 ### Welcome to
-Sistema de Citas Medicas usando PHP, MySQL y Bootstrap.
-
-### Welcome to
-Con esta aplicación web podrá:
-- Gestion de Pacientes, Medicos
-- Creacion de Citas: Asunto, Paciente, medico, Fecha, Hora, Enfermedad, Sintomas, Medicamentos, Costo
+- Gestion de Pacientes, Medicos e instrumental
+- Creacion de Citas
 - Vista de Calendario
 - Integracion de Areas con Medicos
 - Integracion de estado de cita y tipo de pago
@@ -16,4 +12,25 @@ Con esta aplicación web podrá:
 
 MONTAJE DE LA APLICACIÓN WEB.
 
-Se debe descargar la carpeta proyecto. Se debe tener apache y mysql (para ahorrar tiempo puede usar xampp o appserv). Dentro de phpmyadmin crear una base de datos y subir el schema.sql de la carpeta proyecto. Ahora solo para entrar se debe ingresar a localhost/proyecto Las credenciales de admin es admin:admin
+Se debe descargar la carpeta proyecto.
+
+Se debe tener Apache 2.4.25, MySQL 5.7.17 y PHP 5.6.30 (para ahorrar tiempo puede usar Appserv) http://prdownloads.sourceforge.net/appserv/appserv-win32-8.6.0.exe?download .
+
+Dentro de phpmyadmin crear una base de datos con nombre 'welcometo' (Sin comillas) e importar schema.sql , el cuál esta dentro de la carpeta proyecto. El cotejamiento debe ser 'utf8_general_ci'.
+
+Modificar el archivo .php llamado Database.php "/proyecto/core/controller/Database.php" para establecer la conexión con la base de datos, en la linea 6, donde sale:
+$this->user="USUARIO_DE_PHPMYADMIN";
+$this->pass="CONTRASEÑA_DE_PHPMYADMIN";
+
+Cambiar USUARIO_DE_PHPMYADMIN por el usuario que usted configuró en phpmyadmin, por default suele ser 'root' (Sin comillas).
+Cambiar CONTRASEÑA_DE_PHPMYADMIN por la contraseña que usted configuró en phpmyadmin, por default suele ser 'root' (Sin comillas) o simplemente sin contraseña.
+
+Ahora solo para entrar se debe ingresar dentro del navegador chrome o mozilla firefox a la dirección: http://localhost/proyecto
+
+Las credenciales de administrador por default son usuario: admin contraseña: admin
+
+
+En caso de no funcionar se requiere las siguientes versiones (vienen incluidas si usted descarga Appserv):
+Apache 2.4.25
+PHP 5.6.30
+MySQL 5.7.17
