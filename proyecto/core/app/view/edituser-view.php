@@ -1,3 +1,40 @@
+
+<style>
+	#contact label{
+		display: inline-block;
+		width: 100px;
+		text-align: right;
+	}
+	#contact_submit{
+		padding-left: 100px;
+	}
+	#contact div{
+		margin-top: 1em;
+	}
+	textarea{
+		vertical-align: top;
+		height: 5em;
+	}
+
+	.error{
+		display: none;
+		margin-left: 10px;
+	}
+
+	.error_show{
+		color: red;
+		margin-left: 10px;
+	}
+
+	input.invalid, textarea.invalid{
+		border: 2px solid red;
+	}
+
+	input.valid, textarea.valid{
+		border: 2px solid green;
+	}
+</style>
+
 <?php $user = UserData::getById($_GET["id"]);?>
 <div class="row">
 	<div class="col-md-12">
@@ -24,15 +61,16 @@
 
   <div class="card-content table-responsive">
 
-		<form class="form-horizontal" method="post" id="addproduct" action="index.php?view=updateuser" role="form">
+		<form class="form-horizontal" method="post" id="updateuser" role="form">
 
 
   <div class="form-group">
     <label for="inputEmail1" class="col-lg-2 control-label">Nombre*</label>
     <div class="col-md-6">
-      <input type="text" name="name" value="<?php echo $user->name;?>" class="form-control" id="name" placeholder="Nombre">
+      <input type="text" name="name" value="<?php echo $user->name;?>" required class="form-control" id="name" placeholder="Nombre">
     </div>
   </div>
+
   <div class="form-group">
     <label for="inputEmail1" class="col-lg-2 control-label">Apellido*</label>
     <div class="col-md-6">
@@ -48,7 +86,7 @@
   <div class="form-group">
     <label for="inputEmail1" class="col-lg-2 control-label">Email*</label>
     <div class="col-md-6">
-      <input type="text" name="email" value="<?php echo $user->email;?>" class="form-control" id="email" placeholder="Email">
+      <input type="text" name="email" value="<?php echo $user->email;?>" required class="form-control" id="email" placeholder="Email">
     </div>
   </div>
 
@@ -124,7 +162,42 @@
     </div>
   </div>
 </form>
+<div id="results1"></div>
 	</div>
 </div>
 </div>
 </div>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+
+  $("form").submit(function() {
+    // Getting the form ID
+    var formID = $(this).attr('id');
+    var formDetails = $('#'+formID);
+
+		$.ajax({
+			type: "POST",
+			url: './?action=updateuser',
+			data: formDetails.serialize(),
+			success: function (data) {
+				// Inserting html into the result div
+			//  $('#results0').html(data);
+
+				if(formID=='updateuser')
+							 $('#results1').html(data);
+				// else if(formID=='contact2')
+				//       $('#results2').html(data);
+
+			//  $('#results0').html(data);
+			},
+			error: function(jqXHR, text, error){
+						// Displaying if there are any errors
+							$('#result').html(error);
+				}
+		});
+		return false;
+		});
+		});
+</script>

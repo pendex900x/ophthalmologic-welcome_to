@@ -7,7 +7,7 @@
   </div>
   <div class="card-content table-responsive">
 
-		
+
 <? //Verifica si esta logeado
 if(!isset($_SESSION["user_id"])){
 header('Location: index.php');
@@ -90,7 +90,7 @@ exit();
 
 
 		}else{
-			// no hay usuarios
+			echo "No existen usuarios";// no hay usuarios
 		}
 
 
