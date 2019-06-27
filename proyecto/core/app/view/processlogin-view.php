@@ -27,11 +27,13 @@ if($found==true) {
 	print "Cargando ... $user";
 	print "<script>window.location='index.php?view=home';</script>";
 }else {
+  Core::alert("No hay coincidencia, intente nuevamente.");
 	print "<script>window.location='index.php?view=login';</script>";
 }
 
 }else{
+  Core::alert("Intente nuevamente.");
 	print "<script>window.location='index.php?view=home';</script>";
-	
+
 }
 ?>

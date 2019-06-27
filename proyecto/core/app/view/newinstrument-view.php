@@ -70,23 +70,6 @@
 <script type="text/javascript">
 $(document).ready(function() {
 
-	<!-- name cant be blank-->
-	$('#name').on('input', function() {
-		var input=$(this);
-		var is_name=input.val();
-		if(is_name){input.removeClass("invalid").addClass("valid");}
-		else{input.removeClass("valid").addClass("invalid");}
-	});
-
-	<!-- (no) rut cant be blank-->
-	$('#no').on('input', function() {
-		var input=$(this);
-		var is_no=input.val();
-		if(is_no){input.removeClass("invalid").addClass("valid");}
-		else{input.removeClass("valid").addClass("invalid");}
-	});
-
-
   $("form").submit(function() {
     // Getting the form ID
     var formID = $(this).attr('id');
