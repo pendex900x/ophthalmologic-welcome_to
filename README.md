@@ -20,6 +20,8 @@ Se debe tener Apache 2.4.25, MySQL 5.7.17, PHP 5.6.30 y phpMyAdmin 4.6.6 (para a
 
 Dentro de phpmyadmin crear una base de datos con nombre 'welcometo' (Sin comillas) e importar schema.sql , el cuál esta dentro de la carpeta proyecto. El cotejamiento debe ser 'utf8_general_ci'.
 
+La carpeta proyecto debe ingresarse en la carpeta de 'Appserv/www'
+
 Modificar el archivo .php llamado Database.php "/proyecto/core/controller/Database.php" para establecer la conexión con la base de datos, en la linea 6, donde sale: $this->user="USUARIO_DE_PHPMYADMIN"; $this->pass="CONTRASEÑA_DE_PHPMYADMIN";
 
 Cambiar USUARIO_DE_PHPMYADMIN por el usuario que usted configuró en phpmyadmin, por default suele ser 'root' (Sin comillas). Cambiar CONTRASEÑA_DE_PHPMYADMIN por la contraseña que usted configuró en phpmyadmin, por default suele ser 'root' (Sin comillas) o simplemente sin contraseña.
