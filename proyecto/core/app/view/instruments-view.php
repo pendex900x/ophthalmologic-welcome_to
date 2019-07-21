@@ -87,7 +87,7 @@
 
 
 		}else{
-			echo "<p class='alert alert-danger'>No hay pacientes</p>";
+			echo "<p class='alert alert-danger'>No hay instrumentos</p>";
 		}
 
 
