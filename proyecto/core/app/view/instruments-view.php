@@ -5,7 +5,12 @@
 
 **/
 ?>
+<style>
 
+th{padding:.2em .8em;border:1px solid rgba(20,50,90,0.25);background:#000058;text-align:left;font-size: 18px!important;font-weight:bold!important; color:#07ECF7!important;}
+td{padding:.2em .8em;border:1px solid rgba(16,76,167,0.25);background:rgba(90,156,255,0.25);text-align:left;font-weight:bold!important;font-size: 16px!important;color:black!important;}
+.añadir{background-color:#00B6FF!important;}
+</style>
 <div class="row">
 	<div class="col-md-12">
 <div class="btn-group pull-right">
@@ -21,7 +26,7 @@
 </div>
 <div class="card">
   <div class="card-header">
-      <h4 class="title">Instrumentos</h4>
+      <h4 class="title" style="font-size: 20px;font-weight:bold;color:#07ECF7">Instrumentos</h4>
   </div>
 
 	<?
