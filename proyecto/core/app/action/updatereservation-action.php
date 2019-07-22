@@ -43,10 +43,10 @@ if(count($_POST)>0){
 	$user->medic_id = $_POST["medic_id"];
 	$user->date_at = $_POST["date_at"];
 
-echo $ahora= date('Y-m-d H:i');echo "<br>";
-echo $fecha_ingresada=$_POST["date_at"].$_POST["time_at"];
-exit();
-if ($ahora<$fecha_ingresada){
+$ahora= date('Y-m-d H:i');
+$fecha_ingresada=$_POST["date_at"]." ".$_POST["time_at"];
+
+if ($ahora>$fecha_ingresada){
   Core::alert("Tiene que ser una fecha posterior a la de ahora.");
 exit();
 }
