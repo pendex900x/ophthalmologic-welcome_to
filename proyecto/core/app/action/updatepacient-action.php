@@ -97,7 +97,7 @@ exit();
 $now = date_create('now')->format('Y-m-d');
 $fecha_cumple= $_POST["day_of_birth"];
 $fecha_cumple1 = explode('-', $fecha_cumple);
-if ((2019-$fecha_cumple1[0])<123){
+if ((2019-$fecha_cumple1[0])>123){
   Core::alert("Fecha de nacimiento supera los 123 años. La persona más longeva del mundo vivió 122 años.");
 exit();
 }elseif($fecha_cumple>$now){
