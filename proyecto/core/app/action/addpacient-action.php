@@ -102,7 +102,7 @@ if(count($_POST)>0){
 	//VALIDANDO FECHA DE NACIMIENTO, edad máxima es de 122 años
 	$fecha_cumple= $_POST["day_of_birth"];
 	$fecha_cumple1 = explode('-', $fecha_cumple);
-	if ((2019-$fecha_cumple1[0])>123){
+	if ((2019-$fecha_cumple1[0])<123){
 	  Core::alert("Fecha de nacimiento supera los 123 años. La persona más longeva del mundo vivió 122 años.");
 	exit();
 	}elseif($fecha_cumple>$now){
