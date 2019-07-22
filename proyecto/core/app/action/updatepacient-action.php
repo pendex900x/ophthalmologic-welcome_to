@@ -41,6 +41,16 @@ if(count($_POST)>0){
   $rut2 = str_replace(".", "", $rut1, $contador); //FORMATO PARA AGREGAR RUT AL SISTEMA ES SIN GUIÓN NI PUNTOS.
   //FIN RUT
 
+  include "./core/controller/Database2.php";
+  	if ($result = $mysqli->query("SELECT no from pacient where no=$rut2;")) {
+    $row_cnt = $result->num_rows;
+  if ($row_cnt<1){
+      Core::alert("El rut ingresado ya existe en nuestra base de datos.");
+      $result->close();
+  		exit();
+  }}
+
+
 	$user = PacientData::getById($_POST["user_id"]);
 
 	$user->no = $rut2;
@@ -104,6 +114,8 @@ exit();
   Core::alert("El paciente no puede venir del futuro, arregle la fecha de nacimiento.");
 exit();
 }
+
+
 
 	$user->sick = $_POST["sick"];
   //VALIDANDO EL SICK-ENFERMEDADES

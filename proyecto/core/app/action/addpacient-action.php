@@ -46,6 +46,15 @@ $rut1 = str_replace("-", "", $rut0, $contador);
 $rut2 = str_replace(".", "", $rut1, $contador); //FORMATO PARA AGREGAR RUT AL SISTEMA ES SIN GUIÓN NI PUNTOS.
 //FIN RUT
 
+include "./core/controller/Database2.php";
+	if ($result = $mysqli->query("SELECT no from pacient where no=$rut2;")) {
+  $row_cnt = $result->num_rows;
+if ($row_cnt<1){
+    Core::alert("El rut ingresado ya existe en nuestra base de datos.");
+    $result->close();
+		exit();
+}}
+
 
 if(count($_POST)>0){
 	$user = new PacientData();
@@ -100,7 +109,9 @@ if(count($_POST)>0){
 
 	$user->day_of_birth = $_POST["day_of_birth"];
 	//VALIDANDO FECHA DE NACIMIENTO, edad máxima es de 122 años
-	$fecha_cumple= $_POST["day_of_birth"];
+$now = date_create('now')->format('Y-m-d');
+$fecha_cumple= $_POST["day_of_birth"];
+
 	$fecha_cumple1 = explode('-', $fecha_cumple);
 	if ((2019-$fecha_cumple1[0])>123){
 	  Core::alert("Fecha de nacimiento supera los 123 años. La persona más longeva del mundo vivió 122 años.");

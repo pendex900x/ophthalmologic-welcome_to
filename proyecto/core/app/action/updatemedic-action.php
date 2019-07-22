@@ -42,6 +42,15 @@ $rut1 = str_replace("-", "", $rut0, $contador);
 $rut2 = str_replace(".", "", $rut1, $contador); //FORMATO PARA AGREGAR RUT AL SISTEMA ES SIN GUIÓN NI PUNTOS.
 //FIN RUT
 
+include "./core/controller/Database2.php";
+	if ($result = $mysqli->query("SELECT no from medic where no=$rut2;")) {
+  $row_cnt = $result->num_rows;
+if ($row_cnt<1){
+    Core::alert("El rut ingresado ya existe en nuestra base de datos.");
+    $result->close();
+		exit();
+}}
+
 if(count($_POST)>0){
 	$user = MedicData::getById($_POST["user_id"]);
 
