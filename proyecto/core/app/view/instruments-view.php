@@ -1,16 +1,11 @@
 <?php
 /**
-* Sistema control de citas WELCOME
+* Sistema control de citas WELCOME 
 * @author localhost
 
 **/
 ?>
-<style>
 
-th{padding:.2em .8em;border:1px solid rgba(20,50,90,0.25);background:#000058;text-align:left;font-size: 18px!important;font-weight:bold!important; color:#07ECF7!important;}
-td{padding:.2em .8em;border:1px solid rgba(16,76,167,0.25);background:rgba(90,156,255,0.25);text-align:left;font-weight:bold!important;font-size: 16px!important;color:black!important;}
-.añadir{background-color:#00B6FF!important;}
-</style>
 <div class="row">
 	<div class="col-md-12">
 <div class="btn-group pull-right">
@@ -21,16 +16,17 @@ td{padding:.2em .8em;border:1px solid rgba(16,76,167,0.25);background:rgba(90,15
   <ul class="dropdown-menu" role="menu">
     <li><a href="report/clients-word.php">Word 2007 (.docx)</a></li>
   </ul>
+  
 </div>
 -->
 </div>
 <div class="card">
-  <div class="card-header">
-      <h4 class="title" style="font-size: 20px;font-weight:bold;color:#07ECF7">Instrumentos</h4>
+  <div class="card-header" >
+      <h4 class="tit title" >Stock de Instrumental e Insumos</h4>
   </div>
 
 	<?
-	//Verifica si esta logeado
+	//Verifica si esta logeado 
 		if(!isset($_SESSION["user_id"])){
 		header('Location: index.php');
 		}
@@ -49,7 +45,7 @@ td{padding:.2em .8em;border:1px solid rgba(16,76,167,0.25);background:rgba(90,15
   <div class="card-content table-responsive">
 
 
-	<a href="index.php?view=newinstrument" class="btn btn-default"><i class='fa fa-male'></i> Nuevo Instrumento</a>
+	
 		<?php
 
 		$users = InstrumentData::getAll();
@@ -57,24 +53,24 @@ td{padding:.2em .8em;border:1px solid rgba(16,76,167,0.25);background:rgba(90,15
 			// si hay usuarios
 			?>
 
-			<table class="table table-bordered table-hover">
+			<table class="table table-bordered table-hover" style="text-style:verdana">
 			<thead>
-			<th>Nombre</th>
-			<th>Cantidad</th>
-			<th>Marca</th>
-			<th>Código</th>
-			<th>Creado en</th>
-      <th></th>
+			<th style="font-size: 18px;font-weight:bold; color:#07ECF7">Nombre</th>
+			<th style="font-size: 18px;font-weight:bold;color:#07ECF7">Cantidad</th>
+			<th style="font-size: 18px;font-weight:bold;color:#07ECF7">Marca</th>
+			<th style="font-size: 18px;font-weight:bold;color:#07ECF7">Código</th>
+			<th style="font-size: 18px;font-weight:bold;color:#07ECF7">Fecha Creación</th>
+      		<th style="font-size: 18px;font-weight:bold;color:#07ECF7">Opciones</th>
 			</thead>
 			<?php
 			foreach($users as $user){
 				?>
 				<tr>
-				<td><?php echo $user->name; ?></td>
-				<td><?php echo $user->cantidad; ?></td>
-				<td><?php echo $user->marca; ?></td>
-				<td><?php echo $user->codigo; ?></td>
-				<td><?php echo $user->created_at; ?></td>
+				<td style="font-weight:bold;font-size: 16px;color:black"><?php echo $user->name; ?></td>
+				<td style="font-weight:bold;font-size: 16px;color:black"><?php echo $user->cantidad; ?></td>
+				<td style="font-weight:bold;font-size: 16px;color:black"><?php echo $user->marca; ?></td>
+				<td style="font-weight:bold;font-size: 16px;color:black"><?php echo $user->codigo; ?></td>
+				<td style="font-weight:bold;font-size: 16px;color:black"><?php echo $user->created_at; ?></td>
 				<td style="width:178px;">
 				<a href="index.php?view=editinstrument&id=<?php echo $user->id;?>" class="btn btn-warning btn-xs">Editar</a>
 				<a href="index.php?view=delinstrument&id=<?php echo $user->id;?>" class="btn btn-danger btn-xs">Eliminar</a>
@@ -92,12 +88,13 @@ td{padding:.2em .8em;border:1px solid rgba(16,76,167,0.25);background:rgba(90,15
 
 
 		}else{
-			echo "<p class='alert alert-danger'>No hay instrumentos</p>";
+			echo "<p style= 'font-size:20px;'class='alert alert-danger'>No hay instrumental registrado</p>";
 		}
-
+		
 
 		?>
 
 
 	</div>
 </div>
+<a href="index.php?view=newinstrument" class="añadir btn btn-default" ><i class='fa fa-male'></i> Añadir <br> Instrumental / Insumos</a>
