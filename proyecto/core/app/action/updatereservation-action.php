@@ -27,7 +27,7 @@ if(count($_POST)>0){
 	//valida title(asunto)
 	$title = $_POST["title"];
 	if ($_POST['title']){
-	  if (!preg_match("/^[A-Za-z,.ñÑáéíóúÁÉÍÓÚ ]*$/",$title)) {
+	  if (!preg_match("/^[A-Za-z,.ñÑáéíóúÁÉÍÓÚ ]+$/",$title)) {
 	    Core::alert("Solo letras, números, espacios en blanco, punto, y coma en asunto.");
 	    exit();
 	  }
@@ -47,7 +47,7 @@ if(count($_POST)>0){
 // valida notas
 	$note = $_POST["note"];
 	if ($_POST['note']){
-	  if (!preg_match("/^[A-Za-z,.ñÑáéíóúÁÉÍÓÚ ]*$/",$note)) {
+	  if (!preg_match("/^[A-Za-z,.ñÑáéíóúÁÉÍÓÚ ]+$/",$note)) {
 	    Core::alert("Solo letras, números, espacios en blanco, punto, y coma en nota.");
 	    exit();
 	  }
@@ -67,7 +67,7 @@ if(count($_POST)>0){
 	//valida el costo
 
 	$price=$_POST["price"];
-if(!preg_match("/^[0-9]$/", $_POST["price"])) {
+if(!preg_match("/^[0-9]+$/", $_POST["price"])) {
 	  Core::alert("El costo solo puede llevar numeros");
 	  exit();
 	}
@@ -80,7 +80,7 @@ if(!preg_match("/^[0-9]$/", $_POST["price"])) {
 
 $sick = $_POST["sick"];
 if ($_POST['sick']){
-if (!preg_match("/^[A-Za-z,.ñÑáéíóúÁÉÍÓÚ ]*$/",, $sick)) {
+if (!preg_match("/^[A-Za-z,.ñÑáéíóúÁÉÍÓÚ ]+$/", $sick)) {
 	Core::alert("Solo letras, números, espacios en blanco, punto, y coma en enfermedades.");
 	exit();
 }
@@ -97,7 +97,7 @@ exit();
 	//VALIDANDO syntomas
 	  $symtoms=$_POST["symtoms"];
 	  if ($_POST['symtoms']){
-	    if (!preg_match("/^[A-Za-z,.ñÑáéíóúÁÉÍÓÚ ]*$/", $symtoms)) {
+	    if (!preg_match("/^[A-Za-z,.ñÑáéíóúÁÉÍÓÚ ]+$/", $symtoms)) {
 	      Core::alert("Solo letras, números, espacios en blanco, punto, y coma en sintomas.");
 	      exit();
 	    }
@@ -113,7 +113,7 @@ exit();
 	//VALIDANDO MEDICAMENTOS
     $medicaments=$_POST["medicaments"];
     if ($_POST['medicaments']){
-      if (!preg_match("/^[A-Za-z,.ñÑáéíóúÁÉÍÓÚ ]*$/", $medicaments)) {
+      if (!preg_match("/^[A-Za-z,.ñÑáéíóúÁÉÍÓÚ ]+$/", $medicaments)) {
         Core::alert("Solo letras, números, espacios en blanco, punto, y coma en medicamentos.");
         exit();
       }

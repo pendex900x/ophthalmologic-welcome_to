@@ -28,7 +28,7 @@ $r->title = $_POST["title"];
 //valida title(asunto)
 $title = $_POST["title"];
 if ($_POST['title']){
-  if (!preg_match("/^[A-Za-z,.ñÑáéíóúÁÉÍÓÚ ]*$/",$title)) {
+  if (!preg_match("/^[A-Za-z,.ñÑáéíóúÁÉÍÓÚ ]+$/",$title)) {
     Core::alert("Solo letras, números, espacios en blanco, punto, y coma en asunto.");
     exit();
   }
@@ -43,7 +43,7 @@ $r->note = $_POST["note"];
 // valida notas
 	$note = $_POST["note"];
 	if ($_POST['note']){
-	  if (!preg_match("/^[A-Za-z,.ñÑáéíóúÁÉÍÓÚ ]*$/",$note)) {
+	  if (!preg_match("/^[A-Za-z,.ñÑáéíóúÁÉÍÓÚ ]+$/",$note)) {
 	    Core::alert("Solo letras, números, espacios en blanco, punto, y coma en nota.");
 	    exit();
 	  }
@@ -69,7 +69,7 @@ $r->price = $_POST["price"];
 //valida el costo
 
 $price=$_POST["price"];
-if(!preg_match("/^[0-9]$/", $_POST["price"])) {
+if(!preg_match("/^[0-9]+$/", $_POST["price"])) {
   Core::alert("El costo solo puede llevar numeros");
   exit();
 }
@@ -81,7 +81,7 @@ $r->sick = $_POST["sick"];
 
 $sick = $_POST["sick"];
 if ($_POST['sick']){
-if (!preg_match("/^[A-Za-z,.ñÑáéíóúÁÉÍÓÚ ]*$/",, $sick)) {
+if (!preg_match("/^[A-Za-z,.ñÑáéíóúÁÉÍÓÚ ]+$/",, $sick)) {
 Core::alert("Solo letras, números, espacios en blanco, punto, y coma en enfermedades.");
 exit();
 }
@@ -96,7 +96,7 @@ $r->symtoms = $_POST["symtoms"];
 //VALIDANDO syntomas
   $symtoms=$_POST["symtoms"];
   if ($_POST['symtoms']){
-    if (!preg_match("/^[A-Za-z,.ñÑáéíóúÁÉÍÓÚ ]*$/", $symtoms)) {
+    if (!preg_match("/^[A-Za-z,.ñÑáéíóúÁÉÍÓÚ ]+$/", $symtoms)) {
       Core::alert("Solo letras, números, espacios en blanco, punto, y coma en sintomas.");
       exit();
     }
@@ -112,7 +112,7 @@ $r->medicaments = $_POST["medicaments"];
 //VALIDANDO MEDICAMENTOS
   $medicaments=$_POST["medicaments"];
   if ($_POST['medicaments']){
-    if (!preg_match("/^[A-Za-z,.ñÑáéíóúÁÉÍÓÚ ]*$/", $medicaments)) {
+    if (!preg_match("/^[A-Za-z,.ñÑáéíóúÁÉÍÓÚ ]+$/", $medicaments)) {
       Core::alert("Solo letras, números, espacios en blanco, punto, y coma en medicamentos.");
       exit();
     }
@@ -121,7 +121,7 @@ $r->medicaments = $_POST["medicaments"];
   Core::alert("Medicamentos excede 50 carácteres.");
   exit();
   }
-  
+
 
 
 $r->add();
