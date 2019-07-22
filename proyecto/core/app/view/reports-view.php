@@ -132,6 +132,10 @@ if($_GET["status_id"]!=""||$_GET["pacient_id"]!=""||$_GET["payment_id"]!=""){
 }
 
 
+if ($_GET["start_at"] or $_GET["start_at"]){
+if ($_GET["start_at"]>$_GET["finish_at"]){
+  Core::alert("La fecha de inicio es mayor que la final. Aún no se puede crear un espacio temporal.");
+}}
 
 if($_GET["start_at"]!="" && $_GET["finish_at"]){
 if($_GET["status_id"]!=""||$_GET["pacient_id"]!="" ||$_GET["medic_id"]!="" ||$_GET["payment_id"]!="" ){
@@ -196,7 +200,7 @@ if($_GET["status_id"]!=""||$_GET["pacient_id"]!="" ||$_GET["medic_id"]!="" ||$_G
 
 
 		}else{
-			echo "<p class='alert alert-danger'>No hay pacientes</p>";
+			echo "<p class='alert alert-danger'>No se encontraron citas.</p>";
 		}
 
 

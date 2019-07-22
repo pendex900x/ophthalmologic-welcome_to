@@ -60,7 +60,7 @@ if (strlen($names)>30){
     }
 
 	// valida nombre
-	  if (!preg_match("/^[A-Za-zñ ]*$/",$names)) {
+	  if (!preg_match("/^[A-Za-zñÑáéíóúÁÉÍÓÚ ]*$/",$names)) {
 	    Core::alert("Solo letras o espacios en blanco en el nombre.");
 	    exit();
 	  }elseif ($names==NULL) {
@@ -81,7 +81,7 @@ if (strlen($names)>30){
       }
       //valida apellido
 
-    if (!preg_match("/^[A-Za-zñ ]*$/",$lastnames)) {
+    if (!preg_match("/^[A-Za-zñÑáéíóúÁÉÍÓÚ ]*$/",$lastnames)) {
       Core::alert("Solo letras o espacios en blanco en el apellido.");
       exit();
     }elseif ($lastnames==NULL) {
@@ -103,7 +103,7 @@ if (strlen($names)>30){
         Core::alert("La dirección no puede estar vacío.");
         exit();
     }
-    if (!preg_match("/^[A-Za-z0-9. ]+$/", $address)) {
+    if (!preg_match("/^[A-Za-z0-9.ñÑáéíóúÁÉÍÓÚ ]+$/", $address)) {
     Core::alert("La dirección no cumple con el formato, solo letras, números, punto, y espacios permitidos.");
         exit();
       }

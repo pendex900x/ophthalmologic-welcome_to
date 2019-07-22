@@ -78,12 +78,6 @@
                           <p>Añadir Instrumentos/Insumos</p>
                       </a>
                   </li>
-                  <li>
-                      <a href="./?view=users">
-                          <i class="fa fa-users"></i>
-                          <p>Reserva de Operación por modulos</p>
-                      </a>
-                  </li>
 
                   <li>
                       <a href="./?view=users">
@@ -151,7 +145,7 @@
             <ul>
               <li>
                 <a href="#" target="_blank">
-                  Welcome to
+                  Hecho con <i class="fa fa-heart"></i> para el que lo necesite.
                 </a>
               </li>
         <!--
@@ -209,7 +203,7 @@
   <script type="text/javascript">
       $(document).ready(function(){
 
-      
+
 
       });
   </script>

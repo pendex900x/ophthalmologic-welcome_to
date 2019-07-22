@@ -26,7 +26,7 @@
   <div class="card-content table-responsive">
 
 
-		<form class="form-horizontal" method="post" id="addproduct" action="index.php?view=updatecategory" role="form">
+		<form class="form-horizontal" method="post" id="updatecategoria" action="" role="form">
 
 
   <div class="form-group">
@@ -43,6 +43,41 @@
     </div>
   </div>
 </form>
+<div id="results1"></div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+
+  $("form").submit(function() {
+    // Getting the form ID
+    var formID = $(this).attr('id');
+    var formDetails = $('#'+formID);
+
+		$.ajax({
+			type: "POST",
+			url: './?action=updatecategoria',
+			data: formDetails.serialize(),
+			success: function (data) {
+				// Inserting html into the result div
+			//  $('#results0').html(data);
+
+				if(formID=='updatecategoria')
+							 $('#results1').html(data);
+				// else if(formID=='contact2')
+				//       $('#results2').html(data);
+
+			//  $('#results0').html(data);
+			},
+			error: function(jqXHR, text, error){
+						// Displaying if there are any errors
+							$('#result').html(error);
+				}
+		});
+		return false;
+		});
+		});
+</script>
+
 </div>
 </div>
 	</div>
