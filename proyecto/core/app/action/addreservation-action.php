@@ -58,6 +58,15 @@ $r->note = $_POST["note"];
 $r->pacient_id = $_POST["pacient_id"];
 $r->medic_id = $_POST["medic_id"];
 $r->date_at = $_POST["date_at"];
+
+$ahora= date('Y-m-d H:i');
+$fecha_ingresada=$_POST["date_at"]." ".$_POST["time_at"];
+
+if ($ahora>$fecha_ingresada){
+  Core::alert("Tiene que ser una fecha posterior a la de ahora.");
+exit();
+}
+
 $r->time_at = $_POST["time_at"];
 $r->user_id = $_SESSION["user_id"];
 
