@@ -1,4 +1,13 @@
 <!doctype html>
+<style>
+
+th{padding:.2em .8em;border:1px solid rgba(20,50,90,0.25);background:#000058;text-align:left;font-size: 18px!important;font-weight:bold!important; color:#07ECF7!important;}
+td{padding:.2em .8em;border:1px solid rgba(16,76,167,0.25);background:rgba(90,156,255,0.25);text-align:left;font-weight:bold!important;font-size: 16px!important;color:black!important;}
+.añadir{background-color:#00B6FF!important;font-size:15px!important;font-weight:bold!important;color:black!important}
+.tit{font-size: 20px;font-weight:bold!important;color:#07ECF7!important}
+.crud{font-weight:bold!important;font-size:8px!important;color:black!important;text-align:center!important}
+
+</style>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
