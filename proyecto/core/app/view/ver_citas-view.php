@@ -3,8 +3,8 @@
 <div class="row">
     	<div class="col-md-4 col-md-offset-4">
 							<div class="card">
-							  <div class="card-header" data-background-color="blue">
-							      <h4 class="title">Eres paciente y quieres ver tus horas agendadas?</h4>
+							  <div class="card-header">
+							      <h4 class="tit title">Eres paciente y quieres ver tus horas agendadas?</h4>
 							  </div>
 							  <div class="card-content table-responsive">
 										    	<form accept-charset="UTF-8" role="form" method="post" action="?view=pacient_rut_process">

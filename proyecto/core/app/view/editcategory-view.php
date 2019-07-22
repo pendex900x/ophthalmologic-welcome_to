@@ -2,8 +2,8 @@
 <div class="row">
 	<div class="col-md-12">
 <div class="card">
-  <div class="card-header" data-background-color="blue">
-      <h4 class="title">Editar Categoria</h4>
+  <div class="card-header">
+      <h4 class="tit title">Editar Categoria</h4>
   </div>
 
 	<?

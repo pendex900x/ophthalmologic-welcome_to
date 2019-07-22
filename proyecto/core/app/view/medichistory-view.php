@@ -4,8 +4,8 @@ $pacient = MedicData::getById($_GET["id"]);
 <div class="row">
 
 <div class="card">
-  <div class="card-header" data-background-color="blue">
-      <h4 class="title">Historial de Citas del Medico</h4>
+  <div class="card-header">
+      <h4 class="tit title">Historial de Citas del Medico</h4>
 <p>Medico: <?php echo $pacient->name." ".$pacient->lastname;?></p>
   </div>
 

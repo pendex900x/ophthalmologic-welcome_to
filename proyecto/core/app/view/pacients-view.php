@@ -12,8 +12,8 @@
 -->
 </div>
 <div class="card">
-  <div class="card-header" data-background-color="blue">
-      <h4 class="title">Pacientes</h4>
+  <div class="card-header" >
+      <h4 class="tit title">Pacientes</h4>
   </div>
 
 	<? //Verifica si esta logeado
