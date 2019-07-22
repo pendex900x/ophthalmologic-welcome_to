@@ -80,8 +80,8 @@ $r->sick = $_POST["sick"];
 //VALIDANDO EL SICK-ENFERMEDADES
 
 $sick = $_POST["sick"];
-if ($_POST['sick']){
-if (!preg_match("/^[A-Za-z,.ñÑáéíóúÁÉÍÓÚ ]+$/",, $sick)) {
+if ($_POST["sick"]){
+if (!preg_match("/^[A-Za-z,.ñÑáéíóúÁÉÍÓÚ ]+$/", $sick)) {
 Core::alert("Solo letras, números, espacios en blanco, punto, y coma en enfermedades.");
 exit();
 }
