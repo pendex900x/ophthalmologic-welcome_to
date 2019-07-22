@@ -42,6 +42,17 @@ if(count($_POST)>0){
 	$user->pacient_id = $_POST["pacient_id"];
 	$user->medic_id = $_POST["medic_id"];
 	$user->date_at = $_POST["date_at"];
+
+echo $ahora= date('Y-m-d H:i');echo "<br>";
+echo $fecha_ingresada=$_POST["date_at"].$_POST["time_at"];
+exit();
+if ($ahora<$fecha_ingresada){
+  Core::alert("Tiene que ser una fecha posterior a la de ahora.");
+exit();
+}
+
+
+
 	$user->time_at = $_POST["time_at"];
 	$user->note = $_POST["note"];
 // valida notas
