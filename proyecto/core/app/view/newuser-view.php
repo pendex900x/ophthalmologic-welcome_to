@@ -22,7 +22,7 @@ if (strpos($user->is_type, 'A')!== false){
   </div>
   <div class="card-content table-responsive">
 
-		<form class="form-horizontal" method="post" id="addproduct" action="index.php?view=adduser" role="form">
+		<form class="form-horizontal" method="post" id="adduser" action="" role="form">
 
 
   <div class="form-group">
@@ -107,6 +107,40 @@ if (strpos($user->is_type, 'A')!== false){
     </div>
   </div>
 </form>
+<div id="results1"></div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+
+  $("form").submit(function() {
+    // Getting the form ID
+    var formID = $(this).attr('id');
+    var formDetails = $('#'+formID);
+
+		$.ajax({
+			type: "POST",
+			url: './?action=adduser',
+			data: formDetails.serialize(),
+			success: function (data) {
+				// Inserting html into the result div
+			//  $('#results0').html(data);
+
+				if(formID=='adduser')
+							 $('#results1').html(data);
+				// else if(formID=='contact2')
+				//       $('#results2').html(data);
+
+			//  $('#results0').html(data);
+			},
+			error: function(jqXHR, text, error){
+						// Displaying if there are any errors
+							$('#result').html(error);
+				}
+		});
+		return false;
+		});
+		});
+</script>
 	</div>
 </div>
 </div>
